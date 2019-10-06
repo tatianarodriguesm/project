@@ -1,0 +1,35 @@
+
+  <nav>  
+    <div class="container" style="display:flex; flex-wrap:wrap" >  
+      <div style="width:200px; height:200px; background-color:gainsboro">
+        <div style="padding-bottom: 40px; padding-left: 20px" >
+          <a href="#"  style="padding-bottom: 40px; padding-left: 20px; text-decoration: none"  >Inbox</a>
+        </div> 
+        <div style="padding-bottom: 40px; padding-left: 20px">
+          <a href="#" style="padding-bottom: 40px; padding-left: 20px; text-decoration: none">Sent Mail</a>
+        </div> 
+        <div style="padding-bottom: 40px; padding-left: 20px">
+          <a href="#" style="padding-bottom: 40px; padding-left: 20px; text-decoration: none">Drafts</a>
+        </div> 
+        <div style="padding-bottom: 40px; padding-left: 20px">
+          <a href="#" style="padding-bottom: 40px; padding-left: 20px; text-decoration: none">Trash</a>
+        </div> 
+      </div>
+    </div>  
+  </nav>
+ 
+<table cellspacing="20" style="position: absolute; top:60px; left:200px" >
+
+<tr *ngFor="let message of m">
+  <div ng-show="!hello"> 
+  <th style="text-align: left">{{message.From}}</th>
+    <th style="text-align: left">{{message.Subject}}</th>
+    <th style="text-align: left">{{message.Date}}</th>
+
+    <th ><button (click)="selectMessage(message)">Open</button></th>
+    </div> 
+</tr>
+</table>
+
+
+<app-message-details [message]="selectedMessage"></app-message-details>
